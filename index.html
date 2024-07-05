@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Rating Prediction</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Credit Rating Prediction</h1>
+    <form id="credit-form">
+        <label for="CHK_ACCT">Checking Account Status:</label>
+        <select name="CHK_ACCT" id="CHK_ACCT">
+            <option value="no-account">no-account</option>
+            <option value="0DM">0DM</option>
+            <option value="less-200DM">less-200DM</option>
+            <option value="over-200DM">over-200DM</option>
+        </select>
+
+        <label for="Duration">Duration (months):</label>
+        <input type="number" name="Duration" id="Duration" min="0" required>
+
+        <label for="History">Credit History:</label>
+        <select name="History" id="History">
+            <option value=" critical">critical</option>
+            <option value=" delay">delay</option>
+            <option value=" all-paid-duly">all-paid-duly</option>
+            <option value=" bank-paid-duly">bank-paid-duly</option>
+            <option value=" duly-till-now">duly-till-now</option>
+        </select>
+
+        <label for="Purpose">Purpose of Credit:</label>
+        <select name="Purpose" id="Purpose">
+            <option value=" radio-tv">radio-tv</option>
+            <option value=" education">education</option>
+            <option value=" furniture">furniture</option>
+            <option value=" new-car">new-car</option>
+            <option value=" used-car">used-car</option>
+            <option value=" business">business</option>
+            <option value=" domestic-app">domestic-app</option>
+            <option value=" repairs">repairs</option>
+            <option value=" retraining">retraining</option>
+            <option value=" others">others</option>
+        </select>
+
+        <label for="credit">Credited Amount:</label>
+        <input type="number" name="credit" id="credit" min="0" required>
+
+        <label for="saving">Balance in saving:</label>
+        <select name="saving" id="saving">
+            <option value=" less100DM">less100DM</option>
+            <option value=" less500DM">less500DM</option>
+            <option value=" less1000DM">less1000DM</option>
+            <option value=" over1000DM">over1000DM</option>
+            <option value=" unknown">unknown</option>
+        </select>
+
+        <label for="employment">Employment status:</label>
+        <select name="employment" id="employment">
+            <option value=" one-year">one-year</option>
+            <option value=" four-years">four-years</option>
+            <option value=" seven-years">seven-years</option>
+            <option value=" over-seven">over-seven</option>
+            <option value=" unemployed">unemployed</option>
+        </select>
+
+        <label for="rate">Installment rate:</label>
+        <select name="rate" id="rate">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+
+        <label for="married">Marital Status:</label>
+        <select name="married" id="married">
+            <option value=" female-divorced">female-divorced</option>
+            <option value=" male-divorced">male-divorced</option>
+            <option value=" married-male">married-male</option>
+            <option value=" single-male">single-male</option>
+        </select>
+
+        <label for="co-applicant">Co-applicant:</label>
+        <select name="co-applicant" id="co-applicant">
+            <option value=" guarantor">guarantor</option>
+            <option value=" co-applicant">co-applicant</option>
+            <option value=" none">none</option>
+        </select>
+
+        <label for="resi_count">Present Residence count:</label>
+        <select name="resi_count" id="resi_count">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+
+        <label for="estate">Real Estate:</label>
+        <select name="estate" id="estate">
+            <option value=" building-society">building-society</option>
+            <option value=" real-estate">real-estate</option>
+            <option value=" car">car</option>
+            <option value=" none">none</option>
+        </select>
+
+        <label for="age">Age:</label>
+        <input type="number" name="age" id="age" min="10" max="110" required>
+
+        <label for="oth_inst">Other Installment:</label>
+        <select name="oth_inst" id="oth_inst">
+            <option value=" bank">bank</option>
+            <option value=" stores">stores</option>
+            <option value=" none">none</option>
+        </select>
+
+        <label for="resi">Residence Ownership:</label>
+        <select name="resi" id="resi">
+            <option value=" free">free</option>
+            <option value=" own">own</option>
+            <option value=" rent">rent</option>
+        </select>
+
+        <label for="num_credits">Number of Credits:</label>
+        <select name="num_credits" id="num_credits">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+
+        <label for="job">Job:</label>
+        <select name="job" id="job">
+            <option value=" skilled">skilled</option>
+            <option value=" management">management</option>
+            <option value=" unskilled-resident">unskilled-resident</option>
+            <option value=" unemployed-non-resident">unemployed-non-resident</option>
+        </select>
+
+        <label for="num_dept">Number of Dependents:</label>
+        <select name="num_dept" id="num_dept">
+            <option value="1">1</option>
+            <option value="2">2</option>
+        </select>
+
+        <label for="phone_no">Phone Number:</label>
+        <select name="phone_no" id="phone_no">
+            <option value=" yes">yes</option>
+            <option value=" no">no</option>
+        </select>
+
+        <label for="foreign">Foreigner:</label>
+        <select name="foreign" id="foreign">
+            <option value=" yes">yes</option>
+            <option value=" no">no</option>
+        </select>
+
+        <button type="submit">Predict</button>
+    </form><br>
+    <div id="prediction-result">Result:</div>
+    <br><br><br>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#credit-form').submit(function (event) {
+                event.preventDefault();
+                var formData = {
+                    'CHK_ACCT': $('#CHK_ACCT').val(),
+                    'Duration': $('#Duration').val(),
+                    'History': $('#History').val(),
+                    'Purpose of credit': $('#Purpose').val(),
+                    'Credit Amount': $('#credit').val(),
+                    'Balance in Savings A/C': $('#saving').val(),
+                    'Employment': $('#employment').val(),
+                    'Install_rate': $('#rate').val(),
+                    'Marital status': $('#married').val(),
+                    'Co-applicant': $('#co-applicant').val(),
+                    'Present Resident': $('#resi_count').val(),
+                    'Real Estate': $('#estate').val(),
+                    'Age': $('#age').val(),
+                    'Other installment': $('#oth_inst').val(),
+                    'Residence': $('#resi').val(),
+                    'Num_Credits': $('#num_credits').val(),
+                    'Job': $('#job').val(),
+                    'No. dependents': $('#num_dept').val(),
+                    'Phone': $('#phone_no').val(),
+                    'Foreign': $('#foreign').val()
+                };
+
+                $.ajax({
+                    type: 'POST',
+                    contentType: 'application/json',
+                    url: 'http://127.0.0.1:5000/predict',
+                    data: JSON.stringify(formData),
+                    success: function (response) {
+                        if (response.prediction == 0) {
+                            $('#prediction-result').html('Predicted Credit Rating: <span>BAD</span> ');
+                        }
+                        else
+                            $('#prediction-result').html('Predicted Credit Rating: <span>GOOD</span> ');
+                    },
+                    error: function (xhr, status, error) {
+                        console.error(xhr.responseText);
+                    }
+                });
+            });
+        });
+
+    </script>
+</body>
+
+</html>
